@@ -4,7 +4,7 @@ import { MessageSquare, X, Send } from 'lucide-react';
 import ChatMessage from './ChatMessage';
 
 type ChatMessageType = {
-  id: string; // Changed to string for UUID
+  id: number;
   sender: 'user' | 'bot';
   text: string;
   timestamp: Date;
@@ -16,20 +16,11 @@ const quickQuestionResponses: { [key: string]: string } = {
   'What types do you accept?': 'We accept various software licenses, including Microsoft, Adobe, and more. See our full list online.',
 };
 
-// Simple UUID generator for unique IDs
-const generateUUID = () => {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
-    const r = (Math.random() * 16) | 0;
-    const v = c === 'x' ? r : (r & 0x3) | 0x8;
-    return v.toString(16);
-  });
-};
-
 const ChatWidget: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessageType[]>([
     {
-      id: generateUUID(),
+      id: 1,
       sender: 'bot',
       text: "👋 Hi there! I'm SoftSell's virtual assistant. How can I help you today?",
       timestamp: new Date(),
@@ -49,7 +40,11 @@ const ChatWidget: React.FC = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+  const generateId = () => {
+    return messages.length > 0
+      ? Math.max(...messages.map(m => m.id)) + 1
+      : 1;
+  };
 
   const handleSendMessage = async (userInput?: string) => {
     if (!userInput && !inputValue.trim()) return;
@@ -58,7 +53,7 @@ const ChatWidget: React.FC = () => {
 
     // Add user message
     const userMessage: ChatMessageType = {
-      id: generateUUID(),
+      id: generateId(),
       sender: 'user',
       text: messageText,
       timestamp: new Date(),
@@ -70,7 +65,7 @@ const ChatWidget: React.FC = () => {
     // Check for quick question response
     if (quickQuestionResponses[messageText]) {
       const botResponse: ChatMessageType = {
-        id: generateUUID(),
+        id: generateId(),
         sender: 'bot',
         text: quickQuestionResponses[messageText],
         timestamp: new Date(),
@@ -84,7 +79,6 @@ const ChatWidget: React.FC = () => {
 
     // OpenAI API call
     try {
-      await delay(1000); // 1-second delay to avoid rate limits
       const response = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST',
         headers: {
@@ -110,7 +104,7 @@ const ChatWidget: React.FC = () => {
 
       const botMessageText = data.choices?.[0]?.message?.content?.trim() || 'No response from assistant.';
       const botMessage: ChatMessageType = {
-        id: generateUUID(),
+        id: generateId(),
         sender: 'bot',
         text: botMessageText,
         timestamp: new Date(),
@@ -119,19 +113,15 @@ const ChatWidget: React.FC = () => {
       setMessages(prev => [...prev, botMessage]);
     } catch (error: any) {
       console.error('OpenAI Error:', error.message);
-      let errorMessage = '⚠️ Unable to connect to assistant. Please try again.';
-      if (error.message.includes('quota')) {
-        errorMessage = '⚠️ Quota exceeded. Check your OpenAI plan at platform.openai.com or contact support. Try a quick question instead.';
-      } else if (error.message.includes('Incorrect API key')) {
-        errorMessage = '⚠️ Invalid API key. Verify VITE_OPENAI_API_KEY in your .env file.';
-      }
-      const botMessage: ChatMessageType = {
-        id: generateUUID(),
-        sender: 'bot',
-        text: errorMessage,
-        timestamp: new Date(),
-      };
-      setMessages(prev => [...prev, botMessage]);
+      setMessages(prev => [
+        ...prev,
+        {
+          id: generateId(),
+          sender: 'bot',
+          text: `⚠️ Error: ${error.message || 'Unable to connect to assistant. Please try again.'}`,
+          timestamp: new Date(),
+        },
+      ]);
     } finally {
       setIsTyping(false);
     }
