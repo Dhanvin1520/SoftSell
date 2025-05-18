@@ -1,54 +1,66 @@
-# React + TypeScript + Vite
+# 🧾 SoftSell – Software License Resale Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Hey there! 👋  I am dhanvin vadlamudi
+The task was to build a **responsive, 1-page marketing website** for a fictional company called **SoftSell** — a platform for reselling unused software licenses.  
 
-Currently, two official plugins are available:
+I approached this like a real-world freelance/portfolio project as i have experience in freelancing  with clean UI, fast load speed, and great mobile responsiveness in mind.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## 🚀 Live Website
+🔗 [https://cerulean-muffin-271196.netlify.app/](url)
+## GitHub repo
+🔗 [https://github.com/Dhanvin1520/SoftSell](url)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🎯 Objectives Met
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### ✅ Core Sections
+- **Hero Section** with heading, subheading, CTA button ("Get a Quote")
+- **How It Works** (3 steps with icons – Upload License → Get Valuation → Get Paid)
+- **Why Choose Us** (4 tiles with icons and descriptions)
+- **Customer Testimonials** (2 dummy reviews)
+- **Contact / Lead Form** with:
+  - Name, Email, Company, License Type (dropdown), and Message
+  - Frontend validation for all fields
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## 🛠️ Tech Stack
+
+| Category           | Tech Used              |
+|-------------------|------------------------|
+| Framework         | React + Vite           |
+| Styling           | Tailwind CSS           |
+| Icons             | Lucide React Icons     |
+| Animations        | Framer Motion          |
+| Hosting           | Netlify                |
+| Extras            | Three.js/Fiber in hero background *(my personal touch!)* |
+
+---
+
+##Features
+- ✅ **Three.js/Fiber effects** (Just a little extra, because I love integrating creative 3D elements)
+- ✅ **Dark/Light Mode Toggle**
+- ✅ **SEO-friendly** meta tags and custom page title
+- ✅ **Favicon and logo placeholder**
+- ✅ **Framer Motion animations**
+
+
+## ⏱️ Time Spent
+
+Total time spent: ~6 hours 
+
+
+## 🙋🏻 About Me
+
+I'm a passionate web developer with hands on experience in freelancing and personal projects  who loves blending creativity and clean code. , and I'm constantly learning how to build smarter, more user-friendly interfaces.
+
+## 🔗 Let's Connect
+
+🌐 LinkedIn] [https://www.linkedin.com/in/dhanvin-vadlamudi-365614318/](url)
+👨‍💻 [GitHub]  [https://github.com/Dhanvin1520](url)
+
+Thanks for the opportunity! 🚀 Would love to stay in touch.
+
+
+
