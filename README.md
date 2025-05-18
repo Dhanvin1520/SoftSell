@@ -7,9 +7,9 @@ I approached this like a real-world freelance/portfolio project as i have experi
 
 
 ## 🚀 Live Website
-🔗 [https://cerulean-muffin-271196.netlify.app/](url)
+🔗 https://cerulean-muffin-271196.netlify.app/
 ## GitHub repo
-🔗 [https://github.com/Dhanvin1520/SoftSell](url)
+🔗 https://github.com/Dhanvin1520/SoftSell
 
 
 ## 🎯 Objectives Met
@@ -57,8 +57,8 @@ I'm a passionate web developer with hands on experience in freelancing and perso
 
 ## 🔗 Let's Connect
 
-🌐 LinkedIn] [https://www.linkedin.com/in/dhanvin-vadlamudi-365614318/](url)
-👨‍💻 [GitHub]  [https://github.com/Dhanvin1520](url)
+🌐 LinkedIn] https://www.linkedin.com/in/dhanvin-vadlamudi-365614318/
+👨‍💻 [GitHub]  https://github.com/Dhanvin1520
 
 Thanks for the opportunity! 🚀 Would love to stay in touch.
 
