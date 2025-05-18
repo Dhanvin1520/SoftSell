@@ -60,7 +60,7 @@ I'm a passionate web developer with hands on experience in freelancing and perso
 🌐 LinkedIn] https://www.linkedin.com/in/dhanvin-vadlamudi-365614318/
 👨‍💻 [GitHub]  https://github.com/Dhanvin1520
 
-Thanks for the opportunity! 🚀 Would love to stay in touch.
+
 
 
 
